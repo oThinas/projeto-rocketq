@@ -12,31 +12,32 @@ header {
 #bg {
     grid-area: left;
     background: url(../assets/home-bg-img.svg) no-repeat top/contain;
+    background-position-x: 0rem;
 }
 
 main {
     grid-area: right;
     display: flex;
     align-items: center;
+    margin-top: 2.2rem;
 }
 
 main .container {
-    width: min(36.3rem 100%);
+    width: min(36.3rem, 100%);
 }
 
 main h2 {
     font-family: 'Poppins', sans-serif;
     color: var(--black);
-    font-size: clamp(20px, 2.8rem, 5vw);
+    font-size: clamp(20px, 5vw, 2.8rem);
     margin-bottom: 2.4rem;
 }
-
-
 
 input {
     border: 0.2rem solid var(--grey-blue);
     padding: 0 1.6rem;
-    height: 4.8rem;
+    /* height: 4.8rem; */
+    outline: none;
 }
 
 input, button, .button {

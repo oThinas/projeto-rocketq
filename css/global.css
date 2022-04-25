@@ -27,8 +27,9 @@
 }
 
 body {
+    display: flex;
     height: 100vh;
-    background-color: var(--background);
+    background: var(--background);
 }
 
 body, button, input, textarea {
@@ -62,7 +63,7 @@ body, button, input, textarea {
 
 .content header img {
     width: 16.7rem;
-    margin: 3.7rem auto;
+    margin: 3.7rem 14rem;
 }
 
 input, button, .button {
@@ -72,12 +73,12 @@ input, button, .button {
 
 button, .button {
     font-family: 'Poppins', sans-serif;
-    font-weight: 500px;
+    font-weight: 500;
     line-height: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--blue);
+    background: var(--blue);
     color: var(--white);
     cursor: pointer;
     transition: filter 1s;
@@ -92,8 +93,8 @@ button > img, .button > img {
     width: 2rem;
 }
 
-button.outLined,
-.button.outLined {
+button.outlined,
+.button.outlined {
     background-color: var(--white);
     color: var(--blue);
     border: 0.2rem solid var(--blue);
