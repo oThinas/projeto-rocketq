@@ -82,3 +82,83 @@
 #pergunta-form form footer button {
     padding: 0.8rem 2.4rem;
 }
+
+.pergunta-box {
+    background: var(--light-blue);
+    margin-bottom: 0.8rem;
+    border-radius: 0 0.8rem 0.8rem 0.8rem;
+    padding: 2.4rem;
+}
+
+.pergunta-box .pergunta-conteudo {
+    display: flex;
+    align-items: flex-start;
+}
+
+.pergunta-box .pergunta-conteudo .usuario {
+    clip-path: circle();
+    background: var(--blue);
+    padding: 1.4rem;
+}
+
+.pergunta-box .pergunta-conteudo p {
+    margin-left: 1.6rem;
+
+    /* Centraliza o texto dentro do parágrafo */
+    display: flex;
+    align-items: center;
+
+    /* A altura mínima do parágrafo é 52px, altura do círculo, mas caso seja uma pergunta longa, a altura será maior */
+    min-height: 5.2rem;
+
+    /* Evita que nosso layout quebre caso exista alguma palavra muito grande */
+    word-break: break-word;
+}
+
+.pergunta-box .acoes {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+/* Seleciona todos os <a> dentro de class="acoes", mas não seleciona nenhum <a> dentro de <a>
+Exemplo de todos os selacionados: 
+<div class="pergunta-box">
+    <div class="acoes">
+        <a> // É selecionado
+            <a> //Não é selecionado
+        </a>
+        <a> // É selecionado
+        </a>
+    </div>
+</div>*/
+.pergunta-box .acoes > a {
+    display: flex;
+    align-items: center;
+}
+
+/* a + b = Seleciona APENAS o irmão de a, que é o b
+Exemplo: 
+<div class="pergunta-box">
+    <div class="acoes">
+        <a> // Não é selecionado
+        </a>
+        <a> // É selecionado porque é o irmão do elemento que antecede o sinal "+"
+        </a>
+    </div>
+</div> */
+.pergunta-box .acoes > a + a {
+    margin-left: 2.4rem;
+}
+
+.pergunta-box .acoes > a > img {
+    margin-right: 0.8rem;
+}
+
+.pergunta-box.lido {
+    background: var(--grey-transparent);
+}
+
+.pergunta-box.lido .pergunta-conteudo .usuario {
+    background: var(--grey-blue);
+}

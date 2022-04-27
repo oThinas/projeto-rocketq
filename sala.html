@@ -8,6 +8,7 @@
 
     <link rel="stylesheet" href="styles/global.css">
     <link rel="stylesheet" href="styles/sala.css">
+    <link rel="stylesheet" href="styles/modal.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -62,7 +63,7 @@
                                 <p>Qual a diferença entre var, let e const no JavaScript?</p>
                             </div>
                         </div>
-                        <div class="acao">
+                        <div class="acoes">
                             <a href="#" class="marcar">
                                 <img src="assets/check.svg" alt="Ícone de verificado" />
                                 Marcar como lida
@@ -73,9 +74,82 @@
                             </a>
                         </div>
                     </div>
+                    <div class="pergunta-box">
+                        <div class="pergunta-conteudo">
+                            <div class="usuario">
+                                <img src="assets/avatar.svg" alt="Avatar" />
+                            </div>
+                            <div class="pergunta">
+                                <p>O que é TypeScript?</p>
+                            </div>
+                        </div>
+                        <div class="acoes">
+                            <a href="#" class="marcar">
+                                <img src="assets/check.svg" alt="Ícone de verificado" />
+                                Marcar como lida
+                            </a>
+                            <a href="#" class="apagar">
+                                <img src="assets/lixo.svg" alt="Ícone de lixo" />
+                                Excluir
+                            </a>
+                        </div>
+                    </div>
+                    <div class="pergunta-box">
+                        <div class="pergunta-conteudo">
+                            <div class="usuario">
+                                <img src="assets/avatar.svg" alt="Avatar" />
+                            </div>
+                            <div class="pergunta">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, unde dignissimos? Maiores natus velit itaque iusto eos, veritatis nesciunt nulla suscipit laudantium quasi aperiam optio molestiae sequi numquam vel quaerat? Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus assumenda perspiciatis placeat ipsum autem error unde dicta illum dolore quia! Nihil, fuga corrupti voluptatem omnis labore recusandae quasi velit architecto? </p>
+                            </div>
+                        </div>
+                        <div class="acoes">
+                            <a href="#" class="marcar">
+                                <img src="assets/check.svg" alt="Ícone de verificado" />
+                                Marcar como lida
+                            </a>
+                            <a href="#" class="apagar">
+                                <img src="assets/lixo.svg" alt="Ícone de lixo" />
+                                Excluir
+                            </a>
+                        </div>
+                    </div>
+                    <div class="pergunta-box lido">
+                        <div class="pergunta-conteudo">
+                            <div class="usuario">
+                                <img src="assets/avatar.svg" alt="Avatar" />
+                            </div>
+                            <div class="pergunta">
+                                <p>O que é JavaScript?</p>
+                            </div>
+                        </div>
+                        <div class="acoes">
+                            <a href="#" class="apagar">
+                                <img src="assets/lixo.svg" alt="Ícone de lixo" />
+                                Excluir
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </section>
         </main>
+    </div>
+
+    <!-- MODAL -->
+    <div class="modal-box">
+        <div class="modal">
+            <h2>Excluir pergunta</h2>
+            <p>Tem certeza que você deseja excluir esta pergunta?</p>
+            <form action="#">
+                <label class="sr-only" for="sala-senha">Digite a senha da sala</label>
+                <input type="password" id="sala-senha" name="sala-senha" placeholder="Digite a senha da sala" />
+
+                <div class="buttons">
+                    <div class="button grey">Cancelar</div>
+                    <button class="red">Sim, excluir</button>
+                </div>
+            </form>
+        </div>
     </div>
 </body>
 </html>
