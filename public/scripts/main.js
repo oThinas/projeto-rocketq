@@ -17,16 +17,19 @@ deletarButton.forEach(button => {
 })
 
 function click(event, marcar = true) {
-    modalTitulo.innerHTML = marcar ? "Marcar como lida" : "Excluir pergunta"
-    modalParagrafo.innerHTML = marcar ? "Tem certeza que você deseja marcar esta pergunta como lida?" : "Tem certeza que você deseja excluir esta pergunta?"
-    modalConfirmar.innerHTML = marcar ? "Sim, marcar" : "Sim, excluir"
+    event.preventDefault()
 
-    // TODO
-    // Não funciona, pedir ajuda
-    // if (check == true){
-    //     modalConfirmar.classList.replace("red", "button")
-    // } else {
-    //     modalConfirmar.classList.replace("button", "red")
-    // }
+    const salaId = document.querySelector("#sala-id").dataset.id
+    const perguntaId = event.target.dataset.id
+    const acao = marcar ? "marcar" : "apagar"
+    const form = document.querySelector(".modal form")
+    form.setAttribute("action", `/pergunta/${salaId}/${perguntaId}/${acao}`)
+
+    const texto = marcar ? "marcar como lida" : "excluir"
+    modalTitulo.innerHTML = marcar ? "Marcar como lida" : "Excluir pergunta"
+    modalParagrafo.innerHTML = `Tem certeza que você deseja ${texto} esta pergunta?`
+    modalConfirmar.innerHTML = `Sim, ${texto}`
+    marcar ? modalConfirmar.classList.remove("red") : modalConfirmar.classList.add("red")
+
     modal.abrir()
 }

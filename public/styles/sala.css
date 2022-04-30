@@ -135,6 +135,7 @@ Exemplo de todos os selacionados:
 .pergunta-box .acoes > a {
     display: flex;
     align-items: center;
+    color: var(--grey-dark);
 }
 
 /* a + b = Seleciona APENAS o irmão de a, que é o b
