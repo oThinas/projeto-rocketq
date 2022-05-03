@@ -4,6 +4,11 @@ const modal = Modal()
 const modalTitulo = document.querySelector(".modal h2")
 const modalParagrafo = document.querySelector(".modal p")
 const modalConfirmar = document.querySelector(".modal button")
+const textArea = document.querySelector("#conteudo")
+const form = document.querySelector("#pergunta-form")
+
+textArea.addEventListener("focusin", selecionar)
+textArea.addEventListener("focusout", naoSelecionar)
 
 const marcarButtons = document.querySelectorAll(".acoes a.marcar")
 marcarButtons.forEach(button => {
@@ -32,4 +37,12 @@ function click(event, marcar = true) {
     marcar ? modalConfirmar.classList.remove("red") : modalConfirmar.classList.add("red")
 
     modal.abrir()
+}
+
+function selecionar() {
+    form.classList.add("azul")
+}
+
+function naoSelecionar() {
+    form.classList.remove("azul")
 }

@@ -49,6 +49,10 @@
     margin-bottom: 1.6rem;
 }
 
+#pergunta-form.azul form {
+    border-color: var(--blue);
+}
+
 #pergunta-form textarea {
     resize: none;
     background: none;
