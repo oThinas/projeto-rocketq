@@ -25,11 +25,11 @@
             </a>
 
             <div class="buttons">
-                <div class="button outlined" id="sala-id" data-id="323243">
-                    #323243
+                <div class="button outlined" id="sala-id" data-id="<%= salaId %>">
+                    #<%= salaId %>
                     <img src="/images/copia.svg" alt="Copiar código da sala" />
                 </div>
-                <a href="#" class="button">
+                <a href="/criar-senha" class="button">
                     <img src="/images/usuario-branco.svg" alt="Criar sala" />
                     Criar sala
                 </a>
@@ -39,9 +39,9 @@
         <main>
             <section id="pergunta-form">
                 <h2>Faça sua pergunta</h2>
-                <form action="">
-                    <label for-id="pergunta" class="sr-only">O que você quer perguntar?</label>
-                    <textarea name="pergunta" id="pergunta" placeholder="O que você quer perguntar?"></textarea>
+                <form action="/pergunta/criar/<%= salaId %>" method="post">
+                    <label for-id="conteudo" class="sr-only">O que você quer perguntar?</label>
+                    <textarea name="conteudo" id="conteudo" placeholder="O que você quer perguntar?"></textarea>
                     
                     <footer>
                         <div>
@@ -56,83 +56,52 @@
             <section class="perguntas">
                 <h2 class="sr-only">Perguntas da comunidade</h2>
 
+                <% if (!isPerguntas) { %>
+                    <%- include('parts/sem-pergunta') %>
+                <% } %>
+
                 <div class="perguntas">
-                    <div class="pergunta-box">
-                        <div class="pergunta-conteudo">
-                            <div class="usuario">
-                                <img src="/images/avatar.svg" alt="Avatar" />
+                    <% perguntas.forEach(pergunta => { %>
+                        <div class="pergunta-box">
+                            <div class="pergunta-conteudo">
+                                <div class="usuario">
+                                    <img src="/images/avatar.svg" alt="Avatar" />
+                                </div>
+                                <div class="pergunta">
+                                    <p><%= pergunta.conteudo %></p>
+                                </div>
                             </div>
-                            <div class="pergunta">
-                                <p>Qual a diferença entre var, let e const no JavaScript?</p>
-                            </div>
-                        </div>
-                        <div class="acoes">
-                            <a href="#" class="marcar" data-id="2">
-                                <img src="/images/check.svg" alt="Ícone de verificado" />
-                                Marcar como lida
-                            </a>
-                            <a href="#" class="apagar" data-id="2">
-                                <img src="/images/lixo.svg" alt="Ícone de lixo" />
-                                Excluir
-                            </a>
-                        </div>
-                    </div>
-                    <div class="pergunta-box">
-                        <div class="pergunta-conteudo">
-                            <div class="usuario">
-                                <img src="/images/avatar.svg" alt="Avatar" />
-                            </div>
-                            <div class="pergunta">
-                                <p>O que é TypeScript?</p>
+                            <div class="acoes">
+                                <a href="#" class="marcar" data-id="<%= pergunta.id_pergunta %>">
+                                    <img src="/images/check.svg" alt="Ícone de verificado" />
+                                    Marcar como lida
+                                </a>
+                                <a href="#" class="apagar" data-id="<%= pergunta.id_pergunta %>">
+                                    <img src="/images/lixo.svg" alt="Ícone de lixo" />
+                                    Excluir
+                                </a>
                             </div>
                         </div>
-                        <div class="acoes">
-                            <a href="#" class="marcar" data-id="3">
-                                <img src="/images/check.svg" alt="Ícone de verificado" />
-                                Marcar como lida
-                            </a>
-                            <a href="#" class="apagar" data-id="3">
-                                <img src="/images/lixo.svg" alt="Ícone de lixo" />
-                                Excluir
-                            </a>
-                        </div>
-                    </div>
-                    <div class="pergunta-box">
-                        <div class="pergunta-conteudo">
-                            <div class="usuario">
-                                <img src="/images/avatar.svg" alt="Avatar" />
+                    <% }); %>
+
+                    <% perguntasLidas.forEach(perguntaLida => { %>
+                        <div class="pergunta-box lida">
+                            <div class="pergunta-conteudo">
+                                <div class="usuario">
+                                    <img src="/images/avatar.svg" alt="Avatar" />
+                                </div>
+                                <div class="pergunta">
+                                    <p><%= perguntaLida.conteudo %></p>
+                                </div>
                             </div>
-                            <div class="pergunta">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, unde dignissimos? Maiores natus velit itaque iusto eos, veritatis nesciunt nulla suscipit laudantium quasi aperiam optio molestiae sequi numquam vel quaerat? Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus assumenda perspiciatis placeat ipsum autem error unde dicta illum dolore quia! Nihil, fuga corrupti voluptatem omnis labore recusandae quasi velit architecto? </p>
-                            </div>
-                        </div>
-                        <div class="acoes">
-                            <a href="#" class="marcar" data-id="4">
-                                <img src="/images/check.svg" alt="Ícone de verificado" />
-                                Marcar como lida
-                            </a>
-                            <a href="#" class="apagar" data-id="4">
-                                <img src="/images/lixo.svg" alt="Ícone de lixo" />
-                                Excluir
-                            </a>
-                        </div>
-                    </div>
-                    <div class="pergunta-box lido">
-                        <div class="pergunta-conteudo">
-                            <div class="usuario">
-                                <img src="/images/avatar.svg" alt="Avatar" />
-                            </div>
-                            <div class="pergunta">
-                                <p>O que é JavaScript?</p>
+                            <div class="acoes">
+                                <a href="#" class="apagar" data-id="<%= perguntaLida.id_pergunta %>">
+                                    <img src="/images/lixo.svg" alt="Ícone de lixo" />
+                                    Excluir
+                                </a>
                             </div>
                         </div>
-                        <div class="acoes">
-                            <a href="#" class="apagar" data-id="1">
-                                <img src="/images/lixo.svg" alt="Ícone de lixo" />
-                                Excluir
-                            </a>
-                        </div>
-                    </div>
+                    <% }); %>
                 </div>
             </section>
         </main>

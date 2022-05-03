@@ -156,10 +156,29 @@ Exemplo:
     margin-right: 0.8rem;
 }
 
-.pergunta-box.lido {
+.pergunta-box.lida {
     background: var(--grey-transparent);
 }
 
-.pergunta-box.lido .pergunta-conteudo .usuario {
+.pergunta-box.lida .pergunta-conteudo .usuario {
     background: var(--grey-blue);
+}
+
+.sem-perguntas {
+    text-align: center;
+    justify-content: center;
+    margin-top: 5.2rem;
+}
+
+.sem-perguntas p:nth-child(2) {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1.8rem;
+    color: var(--black);
+    margin: 1.3rem 0;
+}
+.sem-perguntas p:nth-child(3) {
+    font-size: 1.4rem;
+    color: var(--grey-dark);
+    line-height: 1.9rem;
 }
